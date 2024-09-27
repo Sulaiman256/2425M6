@@ -1,103 +1,144 @@
-console.log("Calculadora iniciada!");
+/*Exercici 1: Configurar l'entorn
 
-// Definimos las funciones de operaciones
-let entradaActual = ''
+*/
 
-document.querySelector('#btn1').addEventListener('click', () => {
-    console.log('1')
-    entradaActual += '1';
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
+//Exercici 2: Crear l'array de preguntes
 
-document.querySelector('#btn2').addEventListener('click', () => {
-    entradaActual += '2';
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
+const quiz = [
+  {
+    question: "¿Cuál es el planeta más cercano al sol?",
+    answers: ["Venus", "Marte", "Mercurio", "Júpiter"],
+    correctAnswer: "Mercurio",
+  },
+  {
+    question: "¿Quién pintó la Mona Lisa?",
+    answers: [
+      "Vincent van Gogh",
+      "Pablo Picasso",
+      "Leonardo da Vinci",
+      "Claude Monet",
+    ],
+    correctAnswer: "Leonardo da Vinci",
+  },
+  {
+    question: "¿Cuál es el río más largo del mundo?",
+    answers: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
+    correctAnswer: "Amazonas",
+  },
+  {
+    question: "¿Cuál es el elemento químico con símbolo 'O'?",
+    answers: ["Oxígeno", "Oro", "Osmio", "Organesón"],
+    correctAnswer: "Oxígeno",
+  },
+  {
+    question: "¿En qué continente se encuentra Egipto?",
+    answers: ["Europa", "África", "Asia", "Oceanía"],
+    correctAnswer: "África",
+  },
+  {
+    question: "¿Cuál es el animal terrestre más rápido?",
+    answers: ["León", "Tigre", "Guepardo", "Caballo"],
+    correctAnswer: "Guepardo",
+  },
+  {
+    question: "¿Qué año comenzó la Primera Guerra Mundial?",
+    answers: ["1914", "1918", "1939", "1945"],
+    correctAnswer: "1914",
+  },
+  {
+    question: "¿Cuál es el país más grande del mundo por área?",
+    answers: ["China", "Rusia", "Canadá", "Estados Unidos"],
+    correctAnswer: "Rusia",
+  },
+  {
+    question: "¿Quién desarrolló la teoría de la relatividad?",
+    answers: [
+      "Isaac Newton",
+      "Albert Einstein",
+      "Nikola Tesla",
+      "Stephen Hawking",
+    ],
+    correctAnswer: "Albert Einstein",
+  },
+  {
+    question: "¿Cuál es el idioma más hablado en el mundo?",
+    answers: ["Español", "Inglés", "Mandarín", "Hindi"],
+    correctAnswer: "Mandarín",
+  },
+];
+console.log(quiz);
 
-document.querySelector('#btn3').addEventListener('click', () => {
-    console.log('3')
-    entradaActual += '3';
+let selectedAnswer = null;
 
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
+// Exercici 3: Carregar una pregunta aleatòria
 
-document.querySelector('#btn4').addEventListener('click', () => {
-    console.log('4')
-    entradaActual += '4';
+function randomQuestion() {
+  if (quiz && quiz.length > 0) {
+    const randomIndex = Math.floor(Math.random() * quiz.length);
+    const pregunta = quiz[randomIndex];
+    console.log(pregunta.question);
+    document.querySelector("#question").textContent = pregunta.question;
+    generateAnswers(pregunta.answers, pregunta.correctAnswer);
+  } else {
+    console.log("No hay preguntas disponibles");
+  }
+}
 
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
+// Exercici 4: Seleccionar una resposta
 
-document.querySelector('#btn5').addEventListener('click', () => {
-    console.log('5')
-    entradaActual += '5';
-
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
-
-document.querySelector('#btn6').addEventListener('click', () => {
-    console.log('6')
-    entradaActual += '6';
-
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
-
-document.querySelector('#btn7').addEventListener('click', () => {
-    console.log('7')
-    entradaActual += '7';
-
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
-
-document.querySelector('#btn8').addEventListener('click', () => {
-    console.log('8')
-    entradaActual += '8';
-
-    document.querySelector('#pantalla').textContent =entradaActual;
-})
-
-document.querySelector('#btn9').addEventListener('click', () => {
-    console.log('9')
-    entradaActual += '9';
-
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
-
-document.querySelector('#btn0').addEventListener('click', () => {
-    console.log('0')
-    entradaActual += '0';
-    document.querySelector('#pantalla').textContent = entradaActual;
-})
-
-document.querySelector('#btnSuma').addEventListener('click', function() {
-    entradaActual += '+';
-    document.querySelector('#pantalla').textContent = entradaActual;
+function generateAnswers(answers, correctAnswer) {
+  let html = "";
+  answers.forEach((answer, index) => {
+    html += `<button class="btn btn-primary" id="answer${
+      index + 1
+    }">${answer}</button>`;
   });
-
-  document.querySelector('#btnResta').addEventListener('click', function() {
-    entradaActual += '-';
-    document.querySelector('pantalla').textContent = entradaActual;
+  document.querySelector("#answers").innerHTML = html;
+  // Agregar el evento al boton
+  answers.forEach((answer, index) => {
+    document
+      .querySelector(`#answer${index + 1}`)
+      .addEventListener("click", () => {
+        console.log(`Answer ${index + 1} clicked ${answer}`);
+        checkAnswer(answer, correctAnswer);
+      });
   });
-  
-document.querySelector('#btnIgual').addEventListener('click', function() {
-   try{
-    if(entradaActual !== ''){
-        const resultado = eval(entradaActual)
-        document.querySelector('#pantalla').textContent = resultado;
+}
+// funcion que chequea la respuesta seleccionada
 
-    }else{
-        console.log('No hay operación a realizar')
-    }
-   }catch(error){
-    console.log('Error en la operación')
-    console.error(error)
-    document.querySelector('#pantalla').textContent = 'Error';
-   }
-  });
+function checkAnswer(answer, correctAnswer) {
+  selectedAnswer = answer;
+  const result = document.querySelector("#result");
+  if (answer === correctAnswer) {
+    // Ahora haremos un div que con fondo verde porque es cuando sera correcto el result
+    result.innerHTML = `Correcto! La respuesta correcta era: ${correctAnswer}`;
+    result.style.backgroundColor = "green";
+  } else {
+    // div que con fondo rojo
+    result.innerHTML = `Incorrecto! La respuesta correcta era: ${correctAnswer}`;
+    result.style.backgroundColor = "red";
+  }
 
- 
-document.querySelector('#btnBorrar').addEventListener('click', function() {
-    entradaActual = '';
-    document.querySelector('#pantalla').textContent = '0';
-  });
+  result.classList.add("alert", "mt-3");
+  result.style.display = "block";
+}
+// Ejercicio 5 Agregar evento al boton para pasar a la siguiente pregunta
+// Exercici 6: Control d'errors
 
+document.querySelector("#next-question").addEventListener("click", () => {
+  if (selectedAnswer === null) {
+    alert(
+      "Debes seleccionar una respuesta antes de pasar a la siguiente pregunta"
+    );
+  } else if (selectedAnswer != null) {
+    selectedAnswer = null;
+    document.querySelector("#result").innerHTML = "";
+    document.querySelector("#result").style.display = "none";
+    randomQuestion();
+  } else {
+    console.log("Next button clicked");
+    randomQuestion();
+  }
+});
+
+document.addEventListener("DOMContentLoaded", randomQuestion);
