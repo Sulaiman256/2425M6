@@ -68,7 +68,6 @@ let bd = [
 ];
 
 // Ahora agregaremos objetos a la array usando push()
-
 bd.push({
   usuari: {
     nom: "Marta",
@@ -92,12 +91,12 @@ function pintaTaula() {
     document.querySelector("#user").innerHTML += `
   <tr>
     <td>${index + 1}</td>
-    <td>${usuario.usuari.nom}</td>
-    <td>${usuario.usuari.cognoms}</td>
-    <td>${usuario.usuari.dni}</td>
     <td><img src="${
       usuario.usuari.urlImatge
     }" alt="avatar" width="50" height="50"></td>
+    <td>${usuario.usuari.nom}</td>
+    <td>${usuario.usuari.cognoms}</td>
+    <td>${usuario.usuari.dni}</td>
   </tr>
   `;
   });
