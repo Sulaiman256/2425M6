@@ -74,7 +74,8 @@ bd.push({
     nom: "Marta",
     cognoms: "Fernandez",
     dni: "37890123A",
-    urlImatge: "https://example.com/marta.jpg",
+    urlImatge:
+      "https://img.freepik.com/vector-gratis/chica-timida-personaje_1450-155.jpg?semt=ais_hybrid",
   },
 });
 
@@ -85,30 +86,21 @@ function pintaTaula() {
 
   // Actualizaremos la funcion para recorrer todo a traves de un forEach y lo inyecte bien
 
-  for (let i = 0; i < bd.length; i++) {
-    console.log(bd);
+  bd.forEach((usuario, index) => {
+    console.log(usuario);
     console.log(bd.length);
-    document.querySelector("#user").innerHTML = `
-
-    
-    <tr>
-              <td>1</td>
-              <td><img width="30" src="${bd[i].usuari.urlImatge}" alt=""></td>
-              <td>${bd[i].usuari.nom}</td>
-              <td>${bd[i].usuari.cognoms}</td>
-              <td>${bd[i].usuari.dni}</td>
-            </tr>
-            <!-- Usuario -->
-            <tr>
-              <td>2</td>
-              <td><img width="30" src="${bd[i].usuari.urlImatge}" alt=""></td>
-              <td>${bd[i].usuari.nom}</td>
-              <td>${bd[i].usuari.cognoms}</td>
-              <td>${bd[i].usuari.dni}</td>
-            </tr>
-    
-    `;
-  }
+    document.querySelector("#user").innerHTML += `
+  <tr>
+    <td>${index + 1}</td>
+    <td>${usuario.usuari.nom}</td>
+    <td>${usuario.usuari.cognoms}</td>
+    <td>${usuario.usuari.dni}</td>
+    <td><img src="${
+      usuario.usuari.urlImatge
+    }" alt="avatar" width="50" height="50"></td>
+  </tr>
+  `;
+  });
 }
 
 pintaTaula();
