@@ -63,11 +63,11 @@ function pintaTaula() {
   console.log("Realizando tabla con datos");
 
   console.log(bd);
+  let contenido = "";
 
   bd.forEach((usuario, index) => {
     console.log(usuario);
-    console.log(bd.length);
-    document.querySelector("#user").innerHTML = `
+    contenido += `
   <tr>
     <td>${index + 1}</td>
     <td><img src="${
@@ -79,6 +79,7 @@ function pintaTaula() {
   </tr>
   `;
   });
+  document.querySelector("#user").innerHTML = contenido;
 }
 
 // Anadir innerhtml para la card imagen e dni
