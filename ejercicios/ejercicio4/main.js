@@ -18,11 +18,11 @@ console.log("Imagen: ", imagen);
 */
 // Crear una funcion que agrupe el valor de los inputs
 
-const nombre = document.querySelector("#formName").value;
-const apellido1 = document.querySelector("#formApellido1").value;
-const apellido2 = document.querySelector("#formApellido2").value;
-const dni = document.querySelector("#formDni").value;
-const imagen = document.querySelector("#formImagen").value;
+let nombre = document.querySelector("#formName").value;
+let apellido1 = document.querySelector("#formApellido1").value;
+let apellido2 = document.querySelector("#formApellido2").value;
+let dni = document.querySelector("#formDni").value;
+let imagen = document.querySelector("#formImagen").value;
 
 function mostrarDatos() {
   nombre = document.querySelector("#formName").value;
@@ -35,14 +35,8 @@ function mostrarDatos() {
   console.log("Apellido 2: ", apellido2);
   console.log("DNI: ", dni);
   console.log("Imagen: ", imagen);
-}
 
-// Añadir el evento de click al botón y que llame a la funcion anterior
-document.querySelector("#buttonFicha").addEventListener("click", mostrarDatos);
-
-// Anadir innerhtml para la card imagen e dni
-
-document.querySelector(".card").innerHTML = `
+  document.querySelector(".card").innerHTML = `
 
 <img src="${imagen}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -51,3 +45,8 @@ document.querySelector(".card").innerHTML = `
           </div>
 
 `;
+}
+
+// Anadir innerhtml para la card imagen e dni
+
+document.querySelector("#buttonFicha").addEventListener("click", mostrarDatos);
