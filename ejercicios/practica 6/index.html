@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     />
   </head>
+
   <body>
     <div class="container">
       <h1>Ejercicio 4 - Math y String</h1>
@@ -43,10 +44,15 @@
               rows="3"
               placeholder="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil voluptas aut necessitatibus placeat inventore fuga. Quisquam distinctio animi doloremque hic dignissimos quo id illum facere. Architecto quidem aliquam deserunt voluptates?"
             ></textarea>
-            <button class="btn btn-warning mb-2">Convertir a Mayusculas</button>
-            <button class="btn btn-danger mb-2">Convertir a Minúsculas</button>
-
-            <p>El texto contiene <strong>25</strong> palabras</p>
+            <button class="btn btn-warning mb-2" id="mayuscula">
+              Convertir a Mayusculas
+            </button>
+            <button class="btn btn-danger mb-2" id="minuscula">
+              Convertir a Minúsculas
+            </button>
+            <p>
+              El texto contiene <strong id="calculateWords"></strong> palabras
+            </p>
           </div>
           <h4>Buscador</h4>
           <div class="input-group mb-3">
@@ -57,8 +63,11 @@
               placeholder="lorem"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              id="inputSearch"
             />
-            <button class="btn btn-success ms-3">Buscar</button>
+            <button class="btn btn-success ms-3" id="submitButton">
+              Buscar
+            </button>
           </div>
           <div class="border p-2">
             <span class="bg-primary text-light">lorem</span> ipsum dolor sit
