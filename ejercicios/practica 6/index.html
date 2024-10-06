@@ -70,13 +70,15 @@
             </button>
           </div>
           <div class="border p-2">
-            <span class="bg-primary text-light">lorem</span> ipsum dolor sit
-            amet consectetur, adipisicing elit. Nihil voluptas aut
-            necessitatibus placeat inventore fuga. Quisquam distinctio animi
+            <span class="bg-primary text-light" id="textoNuevo">lorem</span>
+            ipsum dolor sit amet consectetur, adipisicing elit. Nihil voluptas
+            aut necessitatibus placeat inventore fuga. Quisquam distinctio animi
             doloremque hic dignissimos quo id illum facere. Architecto quidem
             aliquam deserunt voluptates?
           </div>
-          <p>He encontrado <strong>1</strong> coincidencias</p>
+          <p>
+            He encontrado <strong id="coincidencias">0</strong> coincidencias
+          </p>
 
           <h4>Resumen de 10 palabras</h4>
           <div id="resumen" class="border mt-2 p-2">
@@ -97,6 +99,7 @@
               placeholder="Pepe Potamo"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              id="name"
             />
             <span class="input-group-text" id="basic-addon1">Fecha: </span>
             <input
@@ -105,12 +108,19 @@
               placeholder="12/12/2022"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              id="date"
             />
           </div>
-          <button class="btn btn-success">Convertir nombre</button>
-          <button class="btn btn-warning ms-3">Convertir fecha</button>
-          <p class="mt-2">Nombre convertido: <strong>PEPE-POTAMO</strong></p>
-          <p>Fecha convertida: <strong>12-12-2022</strong></p>
+          <button class="btn btn-success" id="ConvertToName">
+            Convertir nombre
+          </button>
+          <button class="btn btn-warning ms-3" id="ConvertToDate">
+            Convertir fecha
+          </button>
+          <p class="mt-2">
+            Nombre convertido: <strong id="textName">PEPE-POTAMO</strong>
+          </p>
+          <p>Fecha convertida: <strong id="textDate">12-12-2022</strong></p>
         </div>
       </div>
 
@@ -124,7 +134,9 @@
             class="form-control"
             placeholder="akdjfuiRcF"
           />
-          <button class="w-100 btn btn-success mt-2">Generar contraseña</button>
+          <button class="w-100 btn btn-success mt-2" id="ButtonPassword">
+            Generar contraseña
+          </button>
         </div>
       </div>
 
@@ -133,11 +145,12 @@
         <div class="col-md-6 offset-md-3 col-12 offset-0 mt-3 border p-5">
           <div
             class="w-100 d-flex justify-content-center"
+            id="Emoticon"
             style="font-size: 60px"
           >
             😜
           </div>
-          <button class="w-100 btn btn-info mt-2 fs-3">
+          <button class="w-100 btn btn-info mt-2 fs-3" id="ButtonEmoticon">
             Generar emoticono
           </button>
         </div>
