@@ -106,128 +106,53 @@ let posicionJugador2 = 0;
 let pierdeTurnoJugador1 = false;
 let pierdeTurnoJugador2 = false;
 
-const dado1 = document.querySelector("#dado1");
-const dado2 = document.querySelector("#dado2");
-const ficha1 = document.querySelector("#ficha1");
-const ficha2 = document.querySelector("#ficha2");
+const dado1 = document.getElementById("dado1");
+const dado2 = document.getElementById("dado2");
+const ficha1 = document.getElementById("ficha1");
+const ficha2 = document.getElementById("ficha2");
 
 function tirarDado() {
-  return Math.floor(Math.random() * 6) + 1;
+  return Math.floor(Math.random() * 2) + 1;
 }
 
 function reglasEspeciales(jugador, posicion) {
   if (jugador === 1) {
     if (posicion === 4 || posicion === 17) {
-      alert("Jugador 1 pierde un turno");
+      alert("Jugador 1 pierde un turno.");
       pierdeTurnoJugador1 = true;
     } else if (posicion === 11) {
-      alert("Jugador1 retrocede a la casilla de salida");
+      alert("Jugador 1 retrocede a la casilla 0.");
       posicionJugador1 = 0;
+    } else if (posicion === 32) {
+      alert("Jugador 1 tira de nuevo.");
+      moverFicha(1);
     } else if (posicion === 6) {
-      alert("Jugador 1 avanza a la casilla 11");
+      alert("Jugador 1 avanza a la casilla 10.");
       posicionJugador1 = 10;
-    }
-  } else if (posicion === 13) {
-    alert("jugador 1 avanza a la casilla 29");
-    posicionJugador1 = 28;
-  } else if (posicion === 1) {
-    alert("Jugador 1 avanza a la casilla 21");
-    posicionJugador1 = 20;
-  } else if (posicion === 17) {
-    alert("Jugador 1 pierde un turno");
-    pierdeTurnoJugador1 = true;
-  } else if (posicion === 21) {
-    alert("Jugador 1 avanza dos casillas");
-    posicionJugador1 += 2;
-  } else if (posicion === 24) {
-    alert("El jugador retrocede a casilla 9");
-    posicionJugador1 = 8;
-  } else if (posicion === 29) {
-    alert("Jugador 1 retrocede a las 27 ");
-    posicionJugador1 = 26;
-  } else if (posicion === 31) {
-    alert("Jugador 1 tira de nuevo.");
-    moverFicha(1);
-  } else if (posicion === 32) {
-    alert("Jugador 1 retrocede a la casilla 20.");
-    posicionJugador1 = 19;
-  } else if (
-    posicion === 2 ||
-    posicion === 3 ||
-    posicion === 5 ||
-    posicion === 7 ||
-    posicion === 8 ||
-    posicion === 9 ||
-    posicion === 12 ||
-    posicion === 14 ||
-    posicion === 15 ||
-    posicion === 16 ||
-    posicion === 18 ||
-    posicion === 19 ||
-    posicion === 20 ||
-    posicion === 22 ||
-    posicion === 23 ||
-    posicion === 25 ||
-    posicion === 26 ||
-    posicion === 27 ||
-    posicion === 28 ||
-    posicion === 31 ||
-    posicion === 33 ||
-    posicion === 34 ||
-    posicion === 35
-  ) {
-    const preguntaAleatoria =
-      preguntas[Math.floor(Math.random() * preguntas.length)];
-    let respuesta = prompt(
-      preguntaAleatoria.question +
-        "\n1. " +
-        preguntaAleatoria.answers[0] +
-        "\n2. " +
-        preguntaAleatoria.answers[1] +
-        "\n3. " +
-        preguntaAleatoria.answers[2]
-    );
-
-    if (respuesta !== preguntaAleatoria.correctAnswer) {
-      alert("Respuesta incorrecta. Retrocede 1 posicion");
-      posicionJugador1 = Math.max(0, posicionJugador1 - 1);
-    }
-    ficha1.style.top = posiciones[posicionJugador1].top;
-    ficha1.style.left = posiciones[posicionJugador1].left;
-  } else {
-    if (posicion === 4 || posicion === 17) {
-      alert("Jugador 2 pierde un turno");
-      pierdeTurnoJugador1 = true;
-    } else if (posicion === 11) {
-      alert("Jugador2 retrocede a la casilla de salida");
-      posicionJugador2 = 0;
-    } else if (posicion === 6) {
-      alert("Jugador 2 avanza a la casilla 11");
-      posicionJugador2 = 10;
     } else if (posicion === 13) {
-      alert("jugador 2 avanza a la casilla 29");
-      posicionJugador2 = 28;
+      alert("Jugador 1 avanza a la casilla 28.");
+      posicionJugador1 = 28;
+    } else if (posicion === 32) {
+      alert("Jugador 1 retrocede a la casilla 19.");
+      posicionJugador1 = 19;
     } else if (posicion === 1) {
-      alert("Jugador 2 avanza a la casilla 21");
-      posicionJugador2 = 20;
+      alert("Jugador 1 avanza a la casilla 20.");
+      posicionJugador1 = 20;
     } else if (posicion === 17) {
       alert("Jugador 1 pierde un turno");
-      pierdeTurnoJugador2 = true;
+      pierdeTurnoJugador1 = true;
     } else if (posicion === 21) {
-      alert("Jugador 2 avanza dos casillas");
-      posicionJugador2 += 2;
+      alert("Jugador 1 avanza 2 casillas");
+      posicionJugador1 += 2;
     } else if (posicion === 24) {
-      alert("El jugador retrocede a casilla 9");
-      posicionJugador2 = 8;
+      alert("Jugador 1 retrocede a casilla 9");
+      posicionJugador1 = 8;
     } else if (posicion === 29) {
-      alert("Jugador 2 retrocede a las 27 ");
-      posicionJugador2 = 26;
-    } else if (posicion === 31) {
-      alert("Jugador 2 tira de nuevo.");
-      moverFicha(2);
-    } else if (posicion === 32) {
-      alert("Jugador 2 retrocede a la casilla 20.");
-      posicionJugador2 = 19;
+      alert("Jugador 1 retrocede a las 27 ");
+      posicionJugador1 = 26;
+    } else if (posicion === 35) {
+      alert("Jugador 1 avanza a la casilla 35.");
+      posicionJugador1 = 35;
     } else if (
       posicion === 2 ||
       posicion === 3 ||
@@ -266,11 +191,146 @@ function reglasEspeciales(jugador, posicion) {
       );
 
       if (respuesta !== preguntaAleatoria.correctAnswer) {
-        alert("Respuesta incorrecta. Retrocede 1 posicion");
-        posicionJugador2 = Math.max(0, posicionJugador2 - 1);
+        alert("Respuesta incorrecta. Retroceder 1 posición.");
+        posicionJugador1 = Math.max(0, posicionJugador1 - 1); // Retrocede una posición, asegurándose de no ir a menos de 0
       }
-      ficha2.style.top = posiciones[posicionJugador2].top;
-      ficha2.style.left = posiciones[posicionJugador2].left;
     }
+
+    ficha1.style.top = posiciones[posicionJugador1].top;
+    ficha1.style.left = posiciones[posicionJugador1].left;
+  } else {
+    if (posicion === 4 || posicion === 17) {
+      alert("Jugador 2 pierde un turno.");
+      pierdeTurnoJugador2 = true;
+    } else if (posicion === 11) {
+      alert("Jugador 2 retrocede a la casilla 0.");
+      posicionJugador2 = 0;
+    } else if (posicion === 32) {
+      alert("Jugador 2 tira de nuevo.");
+      moverFicha(2);
+    } else if (posicion === 6) {
+      alert("Jugador 2 avanza a la casilla 10.");
+      posicionJugador2 = 10;
+    } else if (posicion === 13) {
+      alert("Jugador 2 avanza a la casilla 28.");
+      posicionJugador2 = 28;
+    } else if (posicion === 32) {
+      alert("Jugador 2 retrocede a la casilla 19.");
+      posicionJugador2 = 19;
+    } else if (posicion === 1) {
+      alert("Jugador 2 avanza a la casilla 20.");
+      posicionJugador2 = 20;
+    } else if (posicion === 17) {
+      alert("Jugador 2 pierde un turno");
+      pierdeTurnoJugador2 = true;
+    } else if (posicion === 21) {
+      alert("Jugador 2 avanza 2 casillas");
+      posicionJugador2 += 2;
+    } else if (posicion === 24) {
+      alert("Jugador 2 retrocede a casilla 9");
+      posicionJugador2 = 8;
+    } else if (posicion === 29) {
+      alert("Jugador 2 retrocede a las 27 ");
+      posicionJugador2 = 26;
+    } else if (posicion === 35) {
+      alert("Jugador 2 avanza a la casilla 35.");
+      posicionJugador2 = 35;
+    } else if (
+      posicion === 2 ||
+      posicion === 3 ||
+      posicion === 5 ||
+      posicion === 7 ||
+      posicion === 8 ||
+      posicion === 9 ||
+      posicion === 12 ||
+      posicion === 14 ||
+      posicion === 15 ||
+      posicion === 16 ||
+      posicion === 18 ||
+      posicion === 19 ||
+      posicion === 20 ||
+      posicion === 22 ||
+      posicion === 23 ||
+      posicion === 25 ||
+      posicion === 26 ||
+      posicion === 27 ||
+      posicion === 28 ||
+      posicion === 31 ||
+      posicion === 33 ||
+      posicion === 34 ||
+      posicion === 35
+    ) {
+      const preguntaAleatoria =
+        preguntas[Math.floor(Math.random() * preguntas.length)];
+      let respuesta = prompt(
+        preguntaAleatoria.question +
+          "\n1. " +
+          preguntaAleatoria.answers[0] +
+          "\n2. " +
+          preguntaAleatoria.answers[1] +
+          "\n3. " +
+          preguntaAleatoria.answers[2]
+      );
+
+      if (respuesta !== preguntaAleatoria.correctAnswer) {
+        alert("Respuesta incorrecta. Retroceder 1 posición.");
+        posicionJugador2 = Math.max(0, posicionJugador2 - 1); // Retrocede una posición, asegurándose de no ir a menos de 0
+      }
+    }
+
+    ficha2.style.top = posiciones[posicionJugador2].top;
+    ficha2.style.left = posiciones[posicionJugador2].left;
   }
 }
+
+function moverFicha(jugador) {
+  if (jugador === 1 && pierdeTurnoJugador1) {
+    alert("Jugador 1 pierde su turno.");
+    pierdeTurnoJugador1 = false;
+    return;
+  }
+  if (jugador === 2 && pierdeTurnoJugador2) {
+    alert("Jugador 2 pierde su turno.");
+    pierdeTurnoJugador2 = false;
+    return;
+  }
+
+  const pasos = tirarDado();
+  alert(`Jugador ${jugador} ha sacado un ${pasos}`);
+
+  let nuevaPosicion;
+  if (jugador === 1) {
+    nuevaPosicion = posicionJugador1 + pasos;
+    if (nuevaPosicion >= posiciones.length) {
+      alert("Jugador 1 ha llegado al final!");
+      window.location.reload();
+      return;
+    }
+    if (nuevaPosicion === posicionJugador2) {
+      alert("Jugador 2 ha sido regresado a la posición inicial por Jugador 1.");
+      posicionJugador2 = 0;
+    }
+    posicionJugador1 = nuevaPosicion;
+    ficha1.style.top = posiciones[posicionJugador1].top;
+    ficha1.style.left = posiciones[posicionJugador1].left;
+    reglasEspeciales(1, posicionJugador1);
+  } else {
+    nuevaPosicion = posicionJugador2 + pasos;
+    if (nuevaPosicion >= posiciones.length) {
+      alert("Jugador 2 ha llegado al final!");
+      window.location.reload();
+      return;
+    }
+    if (nuevaPosicion === posicionJugador1) {
+      alert("Jugador 1 ha sido regresado a la posición inicial por Jugador 2.");
+      posicionJugador1 = 0;
+    }
+    posicionJugador2 = nuevaPosicion;
+    ficha2.style.top = posiciones[posicionJugador2].top;
+    ficha2.style.left = posiciones[posicionJugador2].left;
+    reglasEspeciales(2, posicionJugador2);
+  }
+}
+
+dado1.addEventListener("click", () => moverFicha(1));
+dado2.addEventListener("click", () => moverFicha(2));
