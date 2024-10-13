@@ -106,13 +106,13 @@ let posicionJugador2 = 0;
 let pierdeTurnoJugador1 = false;
 let pierdeTurnoJugador2 = false;
 
-const dado1 = document.getElementById("dado1");
-const dado2 = document.getElementById("dado2");
-const ficha1 = document.getElementById("ficha1");
-const ficha2 = document.getElementById("ficha2");
+const dado1 = document.querySelector("#dado1");
+const dado2 = document.querySelector("#dado2");
+const ficha1 = document.querySelector("#ficha1");
+const ficha2 = document.querySelector("#ficha2");
 
 function tirarDado() {
-  return Math.floor(Math.random() * 2) + 1;
+  return Math.floor(Math.random() * 6) + 1;
 }
 
 function reglasEspeciales(jugador, posicion) {
@@ -192,7 +192,7 @@ function reglasEspeciales(jugador, posicion) {
 
       if (respuesta !== preguntaAleatoria.correctAnswer) {
         alert("Respuesta incorrecta. Retroceder 1 posición.");
-        posicionJugador1 = Math.max(0, posicionJugador1 - 1); // Retrocede una posición, asegurándose de no ir a menos de 0
+        posicionJugador1 = Math.max(0, posicionJugador1 - 1);
       }
     }
 
