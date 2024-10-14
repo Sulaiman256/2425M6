@@ -9,14 +9,23 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: #e0f7fa;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #00796b;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
       }
 
       .tablero {
         position: relative;
         width: 600px;
         height: 600px;
-        background-color: #f0f0f0;
-        border: 2px solid #333;
         overflow: hidden;
         margin: 20px auto;
       }
@@ -24,6 +33,7 @@
       .tablero img {
         width: 100%;
         height: 100%;
+        border-radius: 10px;
       }
 
       .ficha {
@@ -34,11 +44,11 @@
       }
 
       .jugador1 {
-        background-color: red;
+        background-color: #ff5252;
       }
 
       .jugador2 {
-        background-color: yellow;
+        background-color: #ffeb3b;
       }
 
       .tablero #ficha1 {
@@ -56,11 +66,43 @@
       .Botones {
         display: flex;
         gap: 10px;
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: #00796b;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #004d40;
+      }
+
+      button:active {
+        transform: scale(0.95);
       }
     </style>
   </head>
   <body>
     <h1>Juego de Fichas</h1>
+    <div
+      id="turno"
+      style="
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+      "
+    >
+      Turno Jugador 1
+    </div>
 
     <div class="tablero">
       <img src="tablero.png" alt="Tablero de juego" />

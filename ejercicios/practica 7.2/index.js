@@ -105,20 +105,37 @@ let posicionJugador1 = 0;
 let posicionJugador2 = 0;
 let pierdeTurnoJugador1 = false;
 let pierdeTurnoJugador2 = false;
+let turnoJugador1 = true;
 
 const dado1 = document.querySelector("#dado1");
 const dado2 = document.querySelector("#dado2");
 const ficha1 = document.querySelector("#ficha1");
 const ficha2 = document.querySelector("#ficha2");
+const turnoDiv = document.querySelector("#turno");
+
+dado2.disabled = true;
+
+function mostrarTurno() {
+  turnoDiv.innerHTML = "";
+  if (turnoJugador1) {
+    turnoDiv.innerHTML = "Turno Jugador 1";
+    turnoDiv.className = "jugador1";
+  } else {
+    turnoDiv.innerHTML = "Turno Jugador 2";
+    turnoDiv.className = "jugador2";
+  }
+  turnoDiv.style.display = "flex";
+}
 
 function tirarDado() {
-  return Math.floor(Math.random() * 6) + 1;
+  return Math.floor(Math.random() * 2) + 1;
 }
 
 function reglasEspeciales(jugador, posicion) {
   if (jugador === 1) {
     if (posicion === 4 || posicion === 17) {
       alert("Jugador 1 pierde un turno.");
+      dado1.disabled = true;
       pierdeTurnoJugador1 = true;
     } else if (posicion === 11) {
       alert("Jugador 1 retrocede a la casilla 0.");
@@ -201,6 +218,7 @@ function reglasEspeciales(jugador, posicion) {
   } else {
     if (posicion === 4 || posicion === 17) {
       alert("Jugador 2 pierde un turno.");
+      dado2.disabled = true;
       pierdeTurnoJugador2 = true;
     } else if (posicion === 11) {
       alert("Jugador 2 retrocede a la casilla 0.");
@@ -281,17 +299,29 @@ function reglasEspeciales(jugador, posicion) {
     ficha2.style.top = posiciones[posicionJugador2].top;
     ficha2.style.left = posiciones[posicionJugador2].left;
   }
+  if (pierdeTurnoJugador1 && jugador === 1) {
+    dado2.disable = false;
+    pierdeTurnoJugador1 = false;
+  } else if (pierdeTurnoJugador2 && jugador === 2) {
+    dado1.disabled = false;
+    pierdeTurnoJugador2 = false;
+  } else {
+    dado1.disable = false;
+    dado2.disable = false;
+  }
 }
 
 function moverFicha(jugador) {
   if (jugador === 1 && pierdeTurnoJugador1) {
     alert("Jugador 1 pierde su turno.");
     pierdeTurnoJugador1 = false;
+    turnoJugador1 = false;
     return;
   }
   if (jugador === 2 && pierdeTurnoJugador2) {
     alert("Jugador 2 pierde su turno.");
     pierdeTurnoJugador2 = false;
+    turnoJugador1 = true;
     return;
   }
 
@@ -314,6 +344,7 @@ function moverFicha(jugador) {
     ficha1.style.top = posiciones[posicionJugador1].top;
     ficha1.style.left = posiciones[posicionJugador1].left;
     reglasEspeciales(1, posicionJugador1);
+    turnoJugador1 = false;
   } else {
     nuevaPosicion = posicionJugador2 + pasos;
     if (nuevaPosicion >= posiciones.length) {
@@ -329,7 +360,11 @@ function moverFicha(jugador) {
     ficha2.style.top = posiciones[posicionJugador2].top;
     ficha2.style.left = posiciones[posicionJugador2].left;
     reglasEspeciales(2, posicionJugador2);
+    turnoJugador1 = true;
   }
+  dado1.disabled = !turnoJugador1;
+  dado2.disabled = turnoJugador1;
+  mostrarTurno();
 }
 
 dado1.addEventListener("click", () => moverFicha(1));
