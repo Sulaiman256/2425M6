@@ -123,6 +123,7 @@ const sonidoMalaSuerte = new Audio("./sound/badLuck.wav");
 const sonidoBuenaSuerte = new Audio("./sound/goodLuck.wav");
 const sonidoGanador = new Audio("./sound/winGame.wav");
 const sonidoDeFondo = new Audio("./sound/fondo.mp3");
+const sonidoMuerte = new Audio("./sound/death.mp3");
 
 sonidoDeFondo.loop = true;
 
@@ -146,6 +147,7 @@ function mostrarTurno() {
 
 function tirarDado() {
   sonidoTirarDado.play();
+  sonidoAvanzar.play();
   return Math.floor(Math.random() * 6) + 1;
 }
 
@@ -153,41 +155,54 @@ function reglasEspeciales(jugador, posicion) {
   if (jugador === 1) {
     if (posicion === 4 || posicion === 17) {
       alert("Jugador 1 pierde un turno.");
+      sonidoPerderTurno.play();
       dado1.disabled = true;
       pierdeTurnoJugador1 = true;
     } else if (posicion === 11) {
       alert("Jugador 1 retrocede a la casilla 0.");
+      sonidoMalaSuerte.play();
       posicionJugador1 = 0;
-    } else if (posicion === 32) {
+    } else if (posicion === 30) {
       alert("Jugador 1 tira de nuevo.");
+      sonidoBuenaSuerte.play();
       moverFicha(1);
     } else if (posicion === 6) {
       alert("Jugador 1 avanza a la casilla 10.");
+      sonidoEstrella.play();
       posicionJugador1 = 10;
     } else if (posicion === 13) {
       alert("Jugador 1 avanza a la casilla 28.");
+      sonidoBuenaSuerte.play();
       posicionJugador1 = 28;
     } else if (posicion === 32) {
       alert("Jugador 1 retrocede a la casilla 19.");
+      sonidoMalaSuerte.play();
       posicionJugador1 = 19;
     } else if (posicion === 1) {
+      sonidoBuenaSuerte.play();
       alert("Jugador 1 avanza a la casilla 20.");
       posicionJugador1 = 20;
     } else if (posicion === 17) {
+      sonidoPerderTurno.play();
       alert("Jugador 1 pierde un turno");
       pierdeTurnoJugador1 = true;
     } else if (posicion === 21) {
+      sonidoAvanzar.play();
       alert("Jugador 1 avanza 2 casillas");
       posicionJugador1 += 2;
     } else if (posicion === 24) {
+      sonidoMalaSuerte.play();
       alert("Jugador 1 retrocede a casilla 9");
       posicionJugador1 = 8;
     } else if (posicion === 29) {
+      sonidoMalaSuerte.play();
       alert("Jugador 1 retrocede a las 27 ");
+      sonidoMalaSuerte.play();
       posicionJugador1 = 26;
     } else if (posicion === 35) {
       alert("Jugador 1 avanza a la casilla 35.");
       posicionJugador1 = 35;
+      sonidoGanador.play();
     } else if (
       posicion === 2 ||
       posicion === 3 ||
@@ -229,10 +244,16 @@ function reglasEspeciales(jugador, posicion) {
 
       if (respuesta === preguntaAleatoria.correctAnswer.toLowerCase()) {
         alert("Respuesta correcta");
+        sonidoRespuestaCorrecta.play();
       } else {
         alert("Respuesta incorrecta. Retroceder 1 posición.");
         posicionJugador1 = Math.max(0, posicionJugador1 - 1);
+        sonidoRespuestaIncorrecta.play();
       }
+    }
+
+    if (posicionJugador1 === posicionJugador2) {
+      preguntaAleatoria.disabled = true;
     }
 
     ficha1.style.top = posiciones[posicionJugador1].top;
@@ -240,39 +261,55 @@ function reglasEspeciales(jugador, posicion) {
   } else {
     if (posicion === 4 || posicion === 17) {
       alert("Jugador 2 pierde un turno.");
+      sonidoPerderTurno.play();
       dado2.disabled = true;
       pierdeTurnoJugador2 = true;
     } else if (posicion === 11) {
+      sonidoMalaSuerte.play();
       alert("Jugador 2 retrocede a la casilla 0.");
       posicionJugador2 = 0;
-    } else if (posicion === 32) {
+    } else if (posicion === 30) {
+      sonidoBuenaSuerte.play();
       alert("Jugador 2 tira de nuevo.");
       moverFicha(2);
     } else if (posicion === 6) {
+      sonidoEstrella.play();
       alert("Jugador 2 avanza a la casilla 10.");
       posicionJugador2 = 10;
     } else if (posicion === 13) {
+      sonidoBuenaSuerte.play();
       alert("Jugador 2 avanza a la casilla 28.");
       posicionJugador2 = 28;
     } else if (posicion === 32) {
+      sonidoMalaSuerte.play();
       alert("Jugador 2 retrocede a la casilla 19.");
       posicionJugador2 = 19;
     } else if (posicion === 1) {
+      sonidoBuenaSuerte.play();
       alert("Jugador 2 avanza a la casilla 20.");
       posicionJugador2 = 20;
     } else if (posicion === 17) {
+      sonidoPerderTurno.play();
+
       alert("Jugador 2 pierde un turno");
       pierdeTurnoJugador2 = true;
     } else if (posicion === 21) {
+      sonidoAvanzar.play();
       alert("Jugador 2 avanza 2 casillas");
       posicionJugador2 += 2;
     } else if (posicion === 24) {
+      sonidoMalaSuerte.play();
+
       alert("Jugador 2 retrocede a casilla 9");
       posicionJugador2 = 8;
     } else if (posicion === 29) {
+      sonidoMalaSuerte.play();
+
       alert("Jugador 2 retrocede a las 27 ");
       posicionJugador2 = 26;
     } else if (posicion === 35) {
+      sonidoGanador.play();
+
       alert("Jugador 2 avanza a la casilla 35.");
       posicionJugador2 = 35;
     } else if (
@@ -316,9 +353,11 @@ function reglasEspeciales(jugador, posicion) {
 
       if (respuesta === preguntaAleatoria.correctAnswer.toLowerCase()) {
         alert("Respuesta correcta");
+        sonidoRespuestaCorrecta.play();
       } else {
         alert("Respuesta incorrecta. Retroceder 1 posición.");
         posicionJugador2 = Math.max(0, posicionJugador2 - 1);
+        sonidoRespuestaIncorrecta.play();
       }
     }
 
@@ -362,13 +401,20 @@ function moverFicha(jugador) {
       window.location.reload();
       return;
     }
-    if (nuevaPosicion === posicionJugador2) {
-      alert("Jugador 2 ha sido regresado a la posición inicial por Jugador 1.");
-      posicionJugador2 = 0;
-    }
     posicionJugador1 = nuevaPosicion;
     ficha1.style.top = posiciones[posicionJugador1].top;
     ficha1.style.left = posiciones[posicionJugador1].left;
+
+    2;
+    if (posicionJugador1 === posicionJugador2) {
+      alert(
+        "Jugador 1 ha eliminado a Jugador 2 y lo regresa a la posición inicial."
+      );
+      sonidoMuerte.play();
+      posicionJugador2 = 0;
+      ficha2.style.top = posiciones[posicionJugador2].top;
+    }
+
     reglasEspeciales(1, posicionJugador1);
     turnoJugador1 = false;
   } else {
@@ -378,13 +424,19 @@ function moverFicha(jugador) {
       window.location.reload();
       return;
     }
-    if (nuevaPosicion === posicionJugador1) {
-      alert("Jugador 1 ha sido regresado a la posición inicial por Jugador 2.");
-      posicionJugador1 = 0;
-    }
     posicionJugador2 = nuevaPosicion;
     ficha2.style.top = posiciones[posicionJugador2].top;
     ficha2.style.left = posiciones[posicionJugador2].left;
+
+    if (posicionJugador2 === posicionJugador1) {
+      alert(
+        "Jugador 2 ha eliminado a Jugador 1 y lo regresa a la posición inicial."
+      );
+      sonidoMuerte.play();
+      posicionJugador1 = 0;
+      ficha1.style.top = posiciones[posicionJugador1].top;
+    }
+
     reglasEspeciales(2, posicionJugador2);
     turnoJugador1 = true;
   }
