@@ -113,6 +113,23 @@ const ficha1 = document.querySelector("#ficha1");
 const ficha2 = document.querySelector("#ficha2");
 const turnoDiv = document.querySelector("#turno");
 
+const sonidoTirarDado = new Audio("./sound/throw.wav");
+const sonidoRespuestaCorrecta = new Audio("./sound/answerWinner.wav");
+const sonidoRespuestaIncorrecta = new Audio("./sound/answerLose.wav");
+const sonidoAvanzar = new Audio("./sound/moveUp.mp3");
+const sonidoPerderTurno = new Audio("./sound/loseTurn.wav");
+const sonidoEstrella = new Audio("./sound/star.mp3");
+const sonidoMalaSuerte = new Audio("./sound/badLuck.wav");
+const sonidoBuenaSuerte = new Audio("./sound/goodLuck.wav");
+const sonidoGanador = new Audio("./sound/winGame.wav");
+const sonidoDeFondo = new Audio("./sound/fondo.mp3");
+
+sonidoDeFondo.loop = true;
+
+document.addEventListener("DOMContentLoaded", function () {
+  sonidoDeFondo.play();
+});
+
 dado2.disabled = true;
 
 function mostrarTurno() {
@@ -128,6 +145,7 @@ function mostrarTurno() {
 }
 
 function tirarDado() {
+  sonidoTirarDado.play();
   return Math.floor(Math.random() * 6) + 1;
 }
 
@@ -314,8 +332,8 @@ function reglasEspeciales(jugador, posicion) {
     dado1.disabled = false;
     pierdeTurnoJugador2 = false;
   } else {
-    dado1.disable = false;
-    dado2.disable = false;
+    dado1.disabled = false;
+    dado2.disabled = false;
   }
 }
 
@@ -370,6 +388,7 @@ function moverFicha(jugador) {
     reglasEspeciales(2, posicionJugador2);
     turnoJugador1 = true;
   }
+
   dado1.disabled = !turnoJugador1;
   dado2.disabled = turnoJugador1;
   mostrarTurno();
