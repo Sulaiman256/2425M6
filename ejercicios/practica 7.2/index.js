@@ -205,9 +205,13 @@ function reglasEspeciales(jugador, posicion) {
           preguntaAleatoria.answers[1] +
           "\n3. " +
           preguntaAleatoria.answers[2]
-      );
+      )
+        .trim()
+        .toLowerCase();
 
-      if (respuesta !== preguntaAleatoria.correctAnswer) {
+      if (respuesta === preguntaAleatoria.correctAnswer.toLowerCase()) {
+        alert("Respuesta correcta");
+      } else {
         alert("Respuesta incorrecta. Retroceder 1 posición.");
         posicionJugador1 = Math.max(0, posicionJugador1 - 1);
       }
@@ -288,11 +292,15 @@ function reglasEspeciales(jugador, posicion) {
           preguntaAleatoria.answers[1] +
           "\n3. " +
           preguntaAleatoria.answers[2]
-      );
+      )
+        .trim()
+        .toLowerCase();
 
-      if (respuesta !== preguntaAleatoria.correctAnswer) {
+      if (respuesta === preguntaAleatoria.correctAnswer.toLowerCase()) {
+        alert("Respuesta correcta");
+      } else {
         alert("Respuesta incorrecta. Retroceder 1 posición.");
-        posicionJugador2 = Math.max(0, posicionJugador2 - 1); // Retrocede una posición, asegurándose de no ir a menos de 0
+        posicionJugador2 = Math.max(0, posicionJugador2 - 1);
       }
     }
 
