@@ -128,7 +128,7 @@ function mostrarTurno() {
 }
 
 function tirarDado() {
-  return Math.floor(Math.random() * 2) + 1;
+  return Math.floor(Math.random() * 6) + 1;
 }
 
 function reglasEspeciales(jugador, posicion) {
