@@ -19,7 +19,7 @@ const preguntas = [
   {
     question: "¿Cuál es el río más largo del mundo?",
     answers: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
-    correctAnswer: "Amazonas",
+    correctAnswer: "Nilo",
   },
   {
     question: "¿Cuál es el elemento químico con símbolo 'O'?",
