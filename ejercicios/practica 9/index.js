@@ -116,25 +116,37 @@ if (
 
 // tarea 5 dibujaUniversoConEstado()
 function dibujaUniversoConEstado(matriz) {
-  const nuevoUniverso = document.createElement("div");
-  nuevoUniverso.className = "universo";
+  const universoExistente = document.querySelector(".universo");
+  if (!universoExistente) {
+    const nuevoUniverso = document.createElement("div");
+    nuevoUniverso.className = "universo";
 
-  for (let i = 0; i < matriz.length; i++) {
-    const fila = document.createElement("div");
-    fila.className = "fila";
+    for (let i = 0; i < matriz.length; i++) {
+      const fila = document.createElement("div");
+      fila.className = "fila";
 
-    for (let j = 0; j < matriz[i].length; j++) {
-      const celda = document.createElement("div");
-      celda.className = matriz[i][j] ? "celula viva" : "celula muerta";
-      celda.setAttribute("data-id", `${i}-${j}`);
-      celda.innerHTML = `${i}-${j}`;
-      fila.appendChild(celda);
+      for (let j = 0; j < matriz[i].length; j++) {
+        const celda = document.createElement("div");
+        celda.className = matriz[i][j] ? "celula viva" : "celula muerta";
+        celda.setAttribute("data-id", `${i}-${j}`);
+        celda.innerHTML = `${i}-${j}`;
+        fila.appendChild(celda);
+      }
+
+      nuevoUniverso.appendChild(fila);
     }
 
-    nuevoUniverso.appendChild(fila);
+    document.body.appendChild(nuevoUniverso);
+  } else {
+    for (let i = 0; i < matriz.length; i++) {
+      for (let j = 0; j < matriz[i].length; j++) {
+        const celda = document.querySelector(`[data-id="${i}-${j}"]`);
+        if (celda) {
+          celda.className = matriz[i][j] ? "celula viva" : "celula muerta";
+        }
+      }
+    }
   }
-
-  document.body.appendChild(nuevoUniverso);
 }
 
 const columnasNuevo = 5;
