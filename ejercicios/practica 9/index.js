@@ -1,5 +1,18 @@
 console.log("Practica 9");
 
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+const columnasVerdaderas = 10;
+const filasVerdaderas = 20;
+let universo = crearMatriz(columnasVerdaderas, filasVerdaderas);
+let intervalo;
+
+const cellSize = {
+  width: canvas.width / columnasVerdaderas,
+  height: canvas.height / filasVerdaderas,
+};
+
 function dibujaUniverso(filas, columnas) {
   const universo = document.createElement("div");
   universo.classList.add("universo");
@@ -116,35 +129,25 @@ if (
 
 // tarea 5 dibujaUniversoConEstado()
 function dibujaUniversoConEstado(matriz) {
-  const universoExistente = document.querySelector(".universo");
-  if (!universoExistente) {
-    const nuevoUniverso = document.createElement("div");
-    nuevoUniverso.className = "universo";
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
 
-    for (let i = 0; i < matriz.length; i++) {
-      const fila = document.createElement("div");
-      fila.className = "fila";
-
-      for (let j = 0; j < matriz[i].length; j++) {
-        const celda = document.createElement("div");
-        celda.className = matriz[i][j] ? "celula viva" : "celula muerta";
-        celda.setAttribute("data-id", `${i}-${j}`);
-        celda.innerHTML = `${i}-${j}`;
-        fila.appendChild(celda);
-      }
-
-      nuevoUniverso.appendChild(fila);
-    }
-
-    document.body.appendChild(nuevoUniverso);
-  } else {
-    for (let i = 0; i < matriz.length; i++) {
-      for (let j = 0; j < matriz[i].length; j++) {
-        const celda = document.querySelector(`[data-id="${i}-${j}"]`);
-        if (celda) {
-          celda.className = matriz[i][j] ? "celula viva" : "celula muerta";
-        }
-      }
+  for (let i = 0; i < matriz.length; i++) {
+    for (let j = 0; j < matriz[i].length; j++) {
+      ctx.fillStyle = matriz[i][j] ? "black" : "white"; // Color según el estado
+      ctx.fillRect(
+        // esto dibuja los rectangulos en 2d debido al canvas
+        j * cellSize.width,
+        i * cellSize.height,
+        cellSize.width,
+        cellSize.height
+      );
+      ctx.strokeRect(
+        // Esto dibuja el contorno de los rectangulos en 2d debido al canvas
+        j * cellSize.width,
+        i * cellSize.height,
+        cellSize.width,
+        cellSize.height
+      );
     }
   }
 }
@@ -296,11 +299,6 @@ console.table(matrizDestino);
 
 // Tarea 10 implementacion completa del juego
 
-const columnasVerdaderas = 10;
-const filasVerdaderas = 20;
-let universo = crearMatriz(columnasVerdaderas, filasVerdaderas);
-let intervalo;
-
 function Game() {
   intervalo = setInterval(() => {
     universo = crearMatrizEvolucionada(universo);
@@ -314,14 +312,12 @@ function pause() {
 
 function resetGame() {
   pause();
-  universo = crearMatriz(columnas, filas);
+  universo = crearMatriz(columnasVerdaderas, filasVerdaderas);
   dibujaUniversoConEstado(universo);
 }
 
 document.querySelector("#start").addEventListener("click", Game);
-
 document.querySelector("#stop").addEventListener("click", pause);
-
 document.querySelector("#restart").addEventListener("click", resetGame);
 
 dibujaUniversoConEstado(universo);

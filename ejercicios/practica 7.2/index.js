@@ -2,12 +2,12 @@ console.log("practica 7.2");
 
 const preguntas = [
   {
-    question: "¿Cuál es el planeta más cercano al sol?",
-    answers: ["Venus", "Marte", "Mercurio", "Júpiter"],
+    question: "Cual es el planeta mas cercano al sol?",
+    answers: ["Venus", "Marte", "Mercurio", "Jupiter"],
     correctAnswer: "Mercurio",
   },
   {
-    question: "¿Quién pintó la Mona Lisa?",
+    question: "Quien pinto la Mona Lisa?",
     answers: [
       "Vincent van Gogh",
       "Pablo Picasso",
@@ -17,37 +17,37 @@ const preguntas = [
     correctAnswer: "Leonardo da Vinci",
   },
   {
-    question: "¿Cuál es el río más largo del mundo?",
-    answers: ["Nilo", "Amazonas", "Yangtsé", "Misisipi"],
+    question: "Cual es el rio mas largo del mundo?",
+    answers: ["Nilo", "Amazonas", "Yangtse", "Misisipi"],
     correctAnswer: "Nilo",
   },
   {
-    question: "¿Cuál es el elemento químico con símbolo 'O'?",
-    answers: ["Oxígeno", "Oro", "Osmio", "Organesón"],
-    correctAnswer: "Oxígeno",
+    question: "Cual es el elemento quimico con simbolo 'O'?",
+    answers: ["Oxigeno", "Oro", "Osmio", "Organeson"],
+    correctAnswer: "Oxigeno",
   },
   {
-    question: "¿En qué continente se encuentra Egipto?",
-    answers: ["Europa", "África", "Asia", "Oceanía"],
-    correctAnswer: "África",
+    question: "En que continente se encuentra Egipto?",
+    answers: ["Europa", "Africa", "Asia", "Oceania"],
+    correctAnswer: "Africa",
   },
   {
-    question: "¿Cuál es el animal terrestre más rápido?",
-    answers: ["León", "Tigre", "Guepardo", "Caballo"],
+    question: "Cual es el animal terrestre mas rapido?",
+    answers: ["Leon", "Tigre", "Guepardo", "Caballo"],
     correctAnswer: "Guepardo",
   },
   {
-    question: "¿Qué año comenzó la Primera Guerra Mundial?",
+    question: "Que ano comenzo la Primera Guerra Mundial?",
     answers: ["1914", "1918", "1939", "1945"],
     correctAnswer: "1914",
   },
   {
-    question: "¿Cuál es el país más grande del mundo por área?",
-    answers: ["China", "Rusia", "Canadá", "Estados Unidos"],
+    question: "Cual es el pais mas grande del mundo por area?",
+    answers: ["China", "Rusia", "Canada", "Estados Unidos"],
     correctAnswer: "Rusia",
   },
   {
-    question: "¿Quién desarrolló la teoría de la relatividad?",
+    question: "Quien desarrollo la teoria de la relatividad?",
     answers: [
       "Isaac Newton",
       "Albert Einstein",
@@ -57,11 +57,107 @@ const preguntas = [
     correctAnswer: "Albert Einstein",
   },
   {
-    question: "¿Cuál es el idioma más hablado en el mundo?",
-    answers: ["Español", "Inglés", "Mandarín", "Hindi"],
-    correctAnswer: "Mandarín",
+    question: "Cual es el idioma mas hablado en el mundo?",
+    answers: ["Espanol", "Ingles", "Mandarin", "Hindi"],
+    correctAnswer: "Mandarin",
+  },
+  {
+    question: "Cual es el oceano mas grande del mundo?",
+    answers: ["Atlantico", "Pacifico", "Indico", "Artico"],
+    correctAnswer: "Pacifico",
+  },
+  {
+    question: "Quien escribio 'Cien anos de soledad'?",
+    answers: [
+      "Gabriel Garcia Marquez",
+      "Jorge Luis Borges",
+      "Mario Vargas Llosa",
+      "Pablo Neruda",
+    ],
+    correctAnswer: "Gabriel Garcia Marquez",
+  },
+  {
+    question: "En que año llego el hombre a la Luna?",
+    answers: ["1965", "1969", "1972", "1975"],
+    correctAnswer: "1969",
+  },
+  {
+    question: "Cual es el pais con mayor poblacion del mundo?",
+    answers: ["India", "Estados Unidos", "China", "Rusia"],
+    correctAnswer: "China",
+  },
+  {
+    question: "Cuantos huesos tiene el cuerpo humano?",
+    answers: ["206", "210", "198", "220"],
+    correctAnswer: "206",
+  },
+  {
+    question: "Cual es el metal mas ligero?",
+    answers: ["Oro", "Plomo", "Litio", "Aluminio"],
+    correctAnswer: "Litio",
+  },
+  {
+    question: "Cual es la capital de Japon?",
+    answers: ["Osaka", "Tokio", "Kioto", "Hiroshima"],
+    correctAnswer: "Tokio",
+  },
+  {
+    question: "Cual es el deporte mas popular en el mundo?",
+    answers: ["Baloncesto", "Tenis", "Futbol", "Cricket"],
+    correctAnswer: "Futbol",
+  },
+  {
+    question: "Cual es el desierto mas grande del mundo?",
+    answers: ["Sahara", "Gobi", "Atacama", "Kalahari"],
+    correctAnswer: "Sahara",
+  },
+  {
+    question: "Que vitamina es esencial para la salud de los huesos?",
+    answers: ["Vitamina A", "Vitamina C", "Vitamina D", "Vitamina E"],
+    correctAnswer: "Vitamina D",
+  },
+  {
+    question: "Cual es el unico mamifero que puede volar?",
+    answers: ["Murcielago", "Aguila", "Pinguino", "Canguro"],
+    correctAnswer: "Murcielago",
+  },
+  {
+    question: "Que pais tiene mas islas en el mundo?",
+    answers: ["Indonesia", "Suecia", "Filipinas", "Noruega"],
+    correctAnswer: "Suecia",
+  },
+  {
+    question: "En que pais se invento el futbol?",
+    answers: ["Brasil", "España", "Reino Unido", "Italia"],
+    correctAnswer: "Reino Unido",
+  },
+  {
+    question: "Cual es el continente mas pequeño en area?",
+    answers: ["Europa", "Antartida", "Oceania", "America del Sur"],
+    correctAnswer: "Oceania",
+  },
+  {
+    question: "Que color tiene el sol?",
+    answers: ["Rojo", "Amarillo", "Blanco", "Naranja"],
+    correctAnswer: "Blanco",
+  },
+  {
+    question: "Que pais tiene el himno nacional mas largo?",
+    answers: ["India", "Japon", "Grecia", "España"],
+    correctAnswer: "Grecia",
+  },
+  {
+    question: "Cual es el unico planeta con anillos visibles?",
+    answers: ["Venus", "Jupiter", "Neptuno", "Saturno"],
+    correctAnswer: "Saturno",
+  },
+  {
+    question: "Cual es la torre mas alta del mundo?",
+    answers: ["Torre Eiffel", "Burj Khalifa", "Empire State", "Taipei 101"],
+    correctAnswer: "Burj Khalifa",
   },
 ];
+
 let posiciones = [
   { top: "450px", left: "120px" }, // Casilla 0
   { top: "400px", left: "120px" }, // Casilla 1
@@ -159,7 +255,7 @@ function reglasEspeciales(jugador, posicion) {
       dado1.disabled = true;
       pierdeTurnoJugador1 = true;
     } else if (posicion === 11) {
-      alert("Jugador 1 retrocede a la casilla 0.");
+      alert("Jugador 1 retrocede a la casilla 1.");
       sonidoMalaSuerte.play();
       posicionJugador1 = 0;
     } else if (posicion === 30) {
@@ -167,20 +263,20 @@ function reglasEspeciales(jugador, posicion) {
       sonidoBuenaSuerte.play();
       moverFicha(1);
     } else if (posicion === 6) {
-      alert("Jugador 1 avanza a la casilla 10.");
+      alert("Jugador 1 avanza a la casilla 11.");
       sonidoEstrella.play();
       posicionJugador1 = 10;
     } else if (posicion === 13) {
-      alert("Jugador 1 avanza a la casilla 28.");
+      alert("Jugador 1 avanza a la casilla 29.");
       sonidoBuenaSuerte.play();
       posicionJugador1 = 28;
     } else if (posicion === 32) {
-      alert("Jugador 1 retrocede a la casilla 19.");
+      alert("Jugador 1 retrocede a la casilla 20.");
       sonidoMalaSuerte.play();
       posicionJugador1 = 19;
     } else if (posicion === 1) {
       sonidoBuenaSuerte.play();
-      alert("Jugador 1 avanza a la casilla 20.");
+      alert("Jugador 1 avanza a la casilla 21.");
       posicionJugador1 = 20;
     } else if (posicion === 17) {
       sonidoPerderTurno.play();
@@ -200,7 +296,6 @@ function reglasEspeciales(jugador, posicion) {
       sonidoMalaSuerte.play();
       posicionJugador1 = 26;
     } else if (posicion === 35) {
-      alert("Jugador 1 avanza a la casilla 35.");
       posicionJugador1 = 35;
       sonidoGanador.play();
     } else if (
@@ -274,19 +369,19 @@ function reglasEspeciales(jugador, posicion) {
       moverFicha(2);
     } else if (posicion === 6) {
       sonidoEstrella.play();
-      alert("Jugador 2 avanza a la casilla 10.");
+      alert("Jugador 2 avanza a la casilla 11.");
       posicionJugador2 = 10;
     } else if (posicion === 13) {
       sonidoBuenaSuerte.play();
-      alert("Jugador 2 avanza a la casilla 28.");
+      alert("Jugador 2 avanza a la casilla 29.");
       posicionJugador2 = 28;
     } else if (posicion === 32) {
       sonidoMalaSuerte.play();
-      alert("Jugador 2 retrocede a la casilla 19.");
+      alert("Jugador 2 retrocede a la casilla 20.");
       posicionJugador2 = 19;
     } else if (posicion === 1) {
       sonidoBuenaSuerte.play();
-      alert("Jugador 2 avanza a la casilla 20.");
+      alert("Jugador 2 avanza a la casilla 21.");
       posicionJugador2 = 20;
     } else if (posicion === 17) {
       sonidoPerderTurno.play();
@@ -310,7 +405,6 @@ function reglasEspeciales(jugador, posicion) {
     } else if (posicion === 35) {
       sonidoGanador.play();
 
-      alert("Jugador 2 avanza a la casilla 35.");
       posicionJugador2 = 35;
     } else if (
       posicion === 2 ||
@@ -398,7 +492,9 @@ function moverFicha(jugador) {
     nuevaPosicion = posicionJugador1 + pasos;
     if (nuevaPosicion >= posiciones.length) {
       alert("Jugador 1 ha llegado al final!");
-      window.location.reload();
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
       return;
     }
     posicionJugador1 = nuevaPosicion;
@@ -413,6 +509,7 @@ function moverFicha(jugador) {
       sonidoMuerte.play();
       posicionJugador2 = 0;
       ficha2.style.top = posiciones[posicionJugador2].top;
+      ficha2.style.left = posiciones[posicionJugador2].left;
     }
 
     reglasEspeciales(1, posicionJugador1);
@@ -421,7 +518,9 @@ function moverFicha(jugador) {
     nuevaPosicion = posicionJugador2 + pasos;
     if (nuevaPosicion >= posiciones.length) {
       alert("Jugador 2 ha llegado al final!");
-      window.location.reload();
+      setTimeout(function () {
+        window.location.reload();
+      }, 3000);
       return;
     }
     posicionJugador2 = nuevaPosicion;
@@ -435,6 +534,7 @@ function moverFicha(jugador) {
       sonidoMuerte.play();
       posicionJugador1 = 0;
       ficha1.style.top = posiciones[posicionJugador1].top;
+      ficha1.style.left = posiciones[posicionJugador1].left;
     }
 
     reglasEspeciales(2, posicionJugador2);

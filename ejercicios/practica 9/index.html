@@ -3,48 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juego de la Vida</title>
-    <style>
-      .universo {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .fila {
-        display: flex;
-      }
-
-      .celula {
-        width: 20px;
-        height: 20px;
-        border: 1px solid #ccc;
-      }
-
-      .viva {
-        background-color: #000;
-      }
-
-      .muerta {
-        background-color: #fff;
-      }
-
-      .controls {
-        margin-top: 20px;
-      }
-
-      button {
-        margin-right: 10px;
-      }
-    </style>
+    <title>Juego de la vida</title>
+    <link rel="stylesheet" href="index.css" />
   </head>
-
   <body>
-    <h1>Juego de la Vida</h1>
-    <div id="universo"></div>
-    <div class="controls">
-      <button id="start">Start</button>
-      <button id="stop">Stop</button>
-      <button id="restart">Restart</button>
+    <div class="container">
+      <h1>Juego de la vida</h1>
+      <div class="controls">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="restart">Reset</button>
+      </div>
+      <canvas id="gameCanvas" width="600" height="400"></canvas>
     </div>
     <script src="index.js"></script>
   </body>
