@@ -316,6 +316,8 @@ function resetGame() {
   dibujaUniversoConEstado(universo);
 }
 
+function boxesPaint() {}
+
 document.querySelector("#start").addEventListener("click", Game);
 document.querySelector("#stop").addEventListener("click", pause);
 document.querySelector("#restart").addEventListener("click", resetGame);
