@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica Codigo Carlos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .actiu {
+        background-color: blue;
+        color: white;
+      }
+      .miDiv {
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body class="container mt-5">
+    <div class="mb-3">
+      <button id="boton1" class="btn btn-primary">Botón 1</button>
+      <button id="boton2" class="btn btn-secondary">Botón 2</button>
+      <button id="boton3" class="btn btn-success">Botón 3</button>
+    </div>
+
+    <div class="miDiv">Hola me llamo Pedro</div>
+
+    <div id="resultat" class="mb-3"></div>
+
+    <div class="mb-3">
+      <img
+        id="image"
+        src="https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg"
+        alt="imagen"
+        class="img-fluid rounded"
+      />
+      <button id="changeImage" class="btn btn-info">Cambiar imagen</button>
+    </div>
+
+    <div class="mb-3">
+      <button id="boton4" class="btn btn-warning">Click</button>
+      <p id="elementoCambiante">Esto cambiará debido a una clase</p>
+    </div>
+
+    <ul id="listaJuegos" class="list-group mb-3"></ul>
+
+    <div>
+      <p id="pregunta"></p>
+      <p id="respuesta"></p>
+    </div>
+
+    <div class="mb-3">
+      <button id="botonSuma" class="btn btn-primary">Sumar</button>
+      <p id="resultadoSuma"></p>
+    </div>
+
+    <div class="mb-3">
+      <input
+        type="text"
+        id="entrada"
+        class="form-control"
+        placeholder="Escribe algo..."
+      />
+      <button id="botonValidar" class="btn btn-secondary mt-2">
+        Validar input
+      </button>
+    </div>
+
+    <button id="botonAlerta" class="btn btn-danger">Alertas</button>
+
+    <div class="mt-4">
+      <img
+        id="imageUser"
+        src="https://aprendolinux.com/wp-content/uploads/2020/07/adduser.png"
+        alt="usuario"
+        class="img-fluid rounded"
+      />
+      <div>
+        <button id="mostrarSrc" class="btn btn-info">Mostrar SRC</button>
+        <button id="MostrarAlt" class="btn btn-info">Mostrar ALT</button>
+        <button id="eliminarAlt" class="btn btn-danger">Eliminar alt</button>
+      </div>
+      <p id="resultadoSrc"></p>
+      <p id="resultadoAlt"></p>
+    </div>
+
+    <script src="PracticaCodigoCarlos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

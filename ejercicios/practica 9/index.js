@@ -1,5 +1,34 @@
 console.log("Practica 9");
 
+function initializePattern(patron, offsetX, offsetY) {
+  for (let i = 0; i < patron.length; i++) {
+    for (let j = 0; j < patron[i].length; j++) {
+      universo[offsetY + i][offsetX + j] = patron[i][j];
+    }
+  }
+}
+
+// Ahora definimos los patrones blinker, toad, y glider
+
+const blinker = [[true, true, true]];
+
+const toad = [
+  [false, true, true, true],
+  [true, true, false, false],
+];
+
+const glider = [
+  [false, true, false],
+  [false, false, true],
+  [true, true, true],
+];
+
+function initializeGameWithPattern(patron) {
+  universo = crearMatriz(columnasVerdaderas, filasVerdaderas);
+  initializePattern(patron, 2, 2);
+  dibujaUniversoConEstado(universo);
+}
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -28,6 +57,11 @@ function dibujaUniverso(filas, columnas) {
       celda.classList.add("celula");
       celda.setAttribute("data-id", `${i}-${j}`);
       celda.innerHTML = `${i}-${j}`;
+
+      celda.addEventListener("click", function () {
+        universo[i][j] = !universo[i][j];
+        dibujaUniversoConEstado(universo);
+      });
       fila.appendChild(celda);
     }
     universo.appendChild(fila);
@@ -316,7 +350,15 @@ function resetGame() {
   dibujaUniversoConEstado(universo);
 }
 
-function boxesPaint() {}
+document
+  .querySelector("#blinker")
+  .addEventListener("click", () => initializeGameWithPattern(blinker));
+document
+  .querySelector("#toad")
+  .addEventListener("click", () => initializeGameWithPattern(toad));
+document
+  .querySelector("#glider")
+  .addEventListener("click", () => initializeGameWithPattern(glider));
 
 document.querySelector("#start").addEventListener("click", Game);
 document.querySelector("#stop").addEventListener("click", pause);
