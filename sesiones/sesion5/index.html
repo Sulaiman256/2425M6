@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sesion 5</title>
+    <style>
+      .alerta {
+        color: red;
+      }
+
+      .textoGrande {
+        font-size: 50px;
+      }
+
+      .borde {
+        border: 2px solid;
+      }
+
+      .cuadrado {
+        width: 100px;
+        height: 100px;
+        background-color: aqua;
+        margin: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Estilos, clases y atributos del DOM</h1>
+    <p id="p1" style="background-color: red">COLOR DE FONDO</p>
+    <p id="p2" title="title de parrafo" class="alerta textoGrande">
+      parrafo con clases
+    </p>
+    <div>
+      <div class="cuadrado">1</div>
+      <div class="cuadrado">2</div>
+      <div class="cuadrado">3</div>
+    </div>
+    <input id="input1" type="text" value="ejemplo" />
+    <button>Mostrar valor del input</button>
+
+    <script>
+      document.querySelector("#p1").style.backgroundColor = "blue";
+      // Modificar estilo (el nombre del estilo debe estar en camelCase)
+      document.querySelector("#p1").style.display = "none"; // ocultar elemento
+
+      // Añadir y quitar clases
+      console.log(document.querySelector("#p1").classList);
+      document.querySelector("#p2").classList.add("borde"); // agregar clase
+      document.querySelector("#p2").classList.remove("alerta"); // Quitar clase
+
+      // ver/añadir y modificar atributos
+      const title = document.querySelector("#p2");
+      console.log("title de p2", title.getAttribute("title")); // Obtener valor del atributo
+      title.setAttribute("title", "nuevo title"); // Añadir valor al atributo
+      console.log("Nuevo title", title.getAttribute("title"));
+
+      const cuadrado = document.querySelector(".cuadrado");
+      console.log(cuadrado.innerHTML);
+
+      // Seleccionar todos los elementos con el mismo id o clase
+
+      const cuadrados = document.querySelectorAll(".cuadrado");
+      console.log(cuadrados);
+      console.log(cuadrados[1].innerHTML);
+      cuadrados[2].classList.add("borde");
+
+      // Acceder y modificar
+
+      const input = document.querySelector("#input1");
+      console.log(input.value);
+      console.log(input.id);
+      input.value = "nuevo valor";
+      document.querySelector("button").addEventListener("click", function () {
+        const texto = document.querySelector("#input1").value;
+        alert("Valor actual del input " + texto);
+      });
+    </script>
+  </body>
+</html>

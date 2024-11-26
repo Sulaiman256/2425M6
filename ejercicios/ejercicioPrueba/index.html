@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 1</title>
+    <style>
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+    
+      form {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+      }
+    
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        color: #333333;
+      }
+    
+      input[type="text"] {
+        width: 100%;
+        padding:0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+    
+      #message {
+        margin-bottom: 2rem;
+        color: #666666;
+        border: 1px solid;
+        padding: 30px;
+        width: 354px;
+      }
+    
+      button {
+        background-color: #007bff;
+        color: #ffffff;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border-radius: 4px;
+      }
+    
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <form action="">
+      <h1>Ejercicio 1</h1>
+      <label for="prompt"></label>
+      <input type="text" name="prompt" id="prompt" />
+      <div id="message">
+
+      </div>
+      <button type="submit" id="submit">aceptar</button>
+    </form>
+    
+    <script src="index.js"></script>
+  </body>
+</html>

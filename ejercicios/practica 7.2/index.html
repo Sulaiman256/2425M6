@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego de Fichas</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #e0f7fa;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #00796b;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .tablero {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        overflow: hidden;
+        margin: 20px auto;
+      }
+
+      .tablero img {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+
+      .ficha {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+
+      .jugador1 {
+        background-color: #ff5252;
+      }
+
+      .jugador2 {
+        background-color: #ffeb3b;
+      }
+
+      .tablero #ficha1 {
+        top: 450px;
+        left: 120px;
+        transition: top 0.5s ease, left 0.5s ease;
+      }
+
+      .tablero #ficha2 {
+        top: 480px;
+        left: 120px;
+        transition: top 0.5s ease, left 0.5s ease;
+      }
+
+      .Botones {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 1rem;
+        color: white;
+        background-color: #00796b;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #004d40;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Juego de Fichas</h1>
+    <div
+      id="turno"
+      style="
+        padding: 10px;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        text-align: center;
+      "
+    >
+      Turno Jugador 1
+    </div>
+
+    <div class="tablero">
+      <img src="tablero.png" alt="Tablero de juego" />
+      <div id="ficha1" class="ficha jugador1"></div>
+      <div id="ficha2" class="ficha jugador2"></div>
+    </div>
+
+    <div class="Botones">
+      <button id="dado1">Tirar Dado Jugador 1</button>
+      <button id="dado2">Tirar Dado Jugador 2</button>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

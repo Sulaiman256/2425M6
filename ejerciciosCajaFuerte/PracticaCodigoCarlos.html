@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practica Codigo Carlos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        background-color: #f0f8ff;
+        color: #333;
+        font-family: "Arial", sans-serif;
+      }
+      h1 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 10px;
+        margin-top: 30px;
+        font-size: 1.8rem;
+      }
+      .actiu {
+        background-color: #3498db;
+        color: white;
+      }
+      .miDiv {
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #3498db;
+        border-radius: 8px;
+        background-color: #ecf0f1;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .btn {
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+      .img-fluid {
+        max-width: 200px;
+        margin-bottom: 10px;
+      }
+      #elementoCambiante {
+        transition: all 0.3s ease;
+      }
+      #listaJuegos {
+        max-width: 300px;
+      }
+      .form-control {
+        max-width: 300px;
+      }
+    </style>
+  </head>
+  <body class="container mt-5">
+    <h1>1. Capturar clics amb addEventListener()</h1>
+    <div class="mb-3">
+      <button id="boton1" class="btn btn-primary">Botón 1</button>
+      <button id="boton2" class="btn btn-secondary">Botón 2</button>
+      <button id="boton3" class="btn btn-success">Botón 3</button>
+    </div>
+
+    <h1>2. Manipulació del DOM amb textContent o innerHTML</h1>
+
+    <h1>3. Mostrar/ocultar elements amb style.display</h1>
+
+    <div class="miDiv">Hola me llamo Pedro</div>
+
+    <h1>4. Generar números aleatoris amb Math.random()</h1>
+
+    <div id="resultat" class="mb-3 p-2 bg-light rounded"></div>
+
+    <h1>5. Manipular atributs amb setAttribute()</h1>
+
+    <div class="mb-3">
+      <img
+        id="image"
+        src="https://img.freepik.com/vector-premium/icono-perfil-usuario-estilo-plano-ilustracion-vector-avatar-miembro-sobre-fondo-aislado-concepto-negocio-signo-permiso-humano_157943-15752.jpg"
+        alt="imagen"
+        class="img-fluid rounded shadow"
+      />
+      <button id="changeImage" class="btn btn-info mt-2">Cambiar imagen</button>
+    </div>
+
+    <h1>6. Afegir i eliminar classes amb classList</h1>
+    <div class="mb-3">
+      <button id="boton4" class="btn btn-warning">Click</button>
+      <p id="elementoCambiante" class="mt-2 p-2 rounded">
+        Esto cambiará debido a una clase
+      </p>
+    </div>
+
+    <h1>7. Recórrer un array amb forEach()</h1>
+
+    <ul id="listaJuegos" class="list-group mb-3"></ul>
+
+    <h1>8. Accedir a un array de dues dimensions</h1>
+    <div class="bg-light p-3 rounded mb-3">
+      <p id="pregunta" class="font-weight-bold"></p>
+      <p id="respuesta" class="font-italic"></p>
+    </div>
+
+    <h1>9. Funció per sumar dos números</h1>
+    <div class="mb-3">
+      <button id="botonSuma" class="btn btn-primary">Sumar</button>
+      <p id="resultadoSuma" class="mt-2"></p>
+    </div>
+
+    <h1>10. Validar una entrada buida</h1>
+    <div class="mb-3">
+      <input
+        type="text"
+        id="entrada"
+        class="form-control"
+        placeholder="Escribe algo..."
+      />
+      <button id="botonValidar" class="btn btn-secondary mt-2">
+        Validar input
+      </button>
+    </div>
+
+    <h1>
+      11. Interacció amb addEventListener() y 12. Control de flux amb if...else,
+      la 12 se muestra en consola
+    </h1>
+
+    <button id="botonAlerta" class="btn btn-danger">Alertas</button>
+
+    <h1>
+      13. Manipulació d'atributs amb getAttribute() y 14. Eliminar l'atribut amb
+      removeAttribute()
+    </h1>
+    <div class="mt-4">
+      <img
+        id="imageUser"
+        src="https://aprendolinux.com/wp-content/uploads/2020/07/adduser.png"
+        alt="usuario"
+        class="img-fluid rounded shadow"
+      />
+      <div class="mt-2">
+        <button id="mostrarSrc" class="btn btn-info">Mostrar SRC</button>
+        <button id="MostrarAlt" class="btn btn-info">Mostrar ALT</button>
+        <button id="eliminarAlt" class="btn btn-danger">Eliminar alt</button>
+      </div>
+      <p id="resultadoSrc" class="mt-2"></p>
+      <p id="resultadoAlt"></p>
+    </div>
+
+    <h1>
+      15. Mostrar números de forma condicional esta en el javascript por eso no
+      se muestra nada
+    </h1>
+
+    <script src="PracticaCodigoCarlos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
